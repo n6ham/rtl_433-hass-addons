@@ -23,7 +23,7 @@ concurrency:
 jobs:
   build_rtl_433:
     name: Build rtl_433 addon
-    runs-on: ubuntu-22.04
+    runs-on: self-hosted
     strategy:
       matrix:
         arch: [aarch64, amd64]
