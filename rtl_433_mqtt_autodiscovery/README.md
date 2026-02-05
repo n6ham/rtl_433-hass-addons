@@ -71,7 +71,7 @@ For more information, see [the original script](https://github.com/n6ham/rtl_433
 
 ## Prerequisites
 
-This add-on doesn't do anything useful unless you already have rtl_433 running and publishing "events" and "device" data to MQTT. If you would like to set that up on the same machine that's running the Home Assistant OS, the simplest way might be to use the [rtl_433 Home Assistant Add-on](https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433).
+This add-on doesn't do anything useful unless you already have rtl_433 running and publishing "events" and "device" data to MQTT. If you would like to set that up on the same machine that's running the Home Assistant OS, the simplest way might be to use the [rtl_433 Home Assistant Add-on](https://github.com/n6ham/rtl_433-hass-addons/tree/main/rtl_433).
 
 ## Home Assistant Add-on
 
@@ -83,7 +83,7 @@ To install this Home Assistant add-on you need to add the rtl_433 add-on reposit
 
  2. Click the menu button in the top right corner and select "Repositories"
 
- 3. Enter https://github.com/pbkhrv/rtl_433-hass-addons in the "Add repository" field.
+ 3. Enter https://github.com/n6ham/rtl_433-hass-addons in the "Add repository" field.
 
  4. Scroll down, select the "rtl_433 MQTT Auto Discovery" add-on and install it.
 
@@ -112,7 +112,7 @@ The following options apply to all broker configurations:
 Follow these steps to run just the autodiscovery script in a dedicated container. For this setup, we recommend using the [hertzg/rtl_433_docker](https://github.com/hertzg/rtl_433_docker) images to run `rtl_433` itself.
 
 ```
-docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
+docker run -e MQTT_HOST=mqtt.example.com -e MQTT_USERNAME=username -e MQTT_PASSWORD=password ghcr.io/n6ham/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64
 ```
 
 Replace `amd64` with your appropriate architecture. For Raspberry Pi, this is `armhf`, `armv7`, or `aarch64` depending on your Pi version and operating system. If unsure, running `arch` at the command line can help identify the architecture.
@@ -124,7 +124,7 @@ version: '3'
 services:
   rtl_433_autodiscovery:
     container_name: rtl_433_autodiscovery
-    image: ghcr.io/pbkhrv/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64 # On Raspberry Pi replace `amd64` with the appropriate architecture.
+    image: ghcr.io/n6ham/rtl_433-hass-addons-rtl_433_mqtt_autodiscovery-amd64 # On Raspberry Pi replace `amd64` with the appropriate architecture.
     environment:
       - MQTT_HOST=mqtt.example.com
       - MQTT_USERNAME=username
