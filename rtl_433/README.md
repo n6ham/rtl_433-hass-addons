@@ -2,7 +2,7 @@
 
 ## About
 
-This add-on is a simple wrapper around the excellent [rtl_433](https://github.com/merbanan/rtl_433) project that receives wireless sensor data via [one of the supported SDR dongles](https://triq.org/rtl_433/HARDWARE.html), decodes and outputs it in a variety of formats including JSON and MQTT. The wireless sensors rtl_433 understands transmit data mostly on 433.92 MHz, 868 MHz, 315 MHz, 345 MHz, and 915 MHz ISM bands.
+This add-on is a simple wrapper around the excellent [rtl_433](https://github.com/n6ham/rtl_433) project that receives wireless sensor data via [one of the supported SDR dongles](https://triq.org/rtl_433/HARDWARE.html), decodes and outputs it in a variety of formats including JSON and MQTT. The wireless sensors rtl_433 understands transmit data mostly on 433.92 MHz, 868 MHz, 315 MHz, 345 MHz, and 915 MHz ISM bands.
 
 [View the rtl_433 documentation](https://triq.org/rtl_433)
 
@@ -15,7 +15,7 @@ By default, rtl_433 prints the data it receives to the terminal - it is up to yo
 Once you get the rtl_433 sensor data into MQTT, you'll need to help Home Assistant discover and make sense of it. You can do that in a number of ways:
 
   * manually configure `sensors` and `binary_sensors` in HA and [link them to the appropriate MQTT topics](https://www.home-assistant.io/integrations/sensor.mqtt/) coming out of rtl_433,
-  * run the [rtl_433_mqtt_hass.py](https://github.com/merbanan/rtl_433/tree/master/examples/rtl_433_mqtt_hass.py) script manually or on a schedule to do most of the configuration automatically, or
+  * run the [rtl_433_mqtt_hass.py](https://github.com/n6ham/rtl_433/tree/master/examples/rtl_433_mqtt_hass.py) script manually or on a schedule to do most of the configuration automatically, or
   * install the [rtl_433 MQTT Auto Discovery Home Assistant Add-on](https://github.com/pbkhrv/rtl_433-hass-addons/tree/main/rtl_433_mqtt_autodiscovery), which runs rtl_433_mqtt_hass.py for you.
 
 ## Prerequisites
@@ -26,7 +26,7 @@ Once you get the rtl_433 sensor data into MQTT, you'll need to help Home Assista
 
  2. Home Assistant OS running on a machine with the SDR dongle plugged into it.
 
- 3. Some wireless sensors supported by rtl_433. The full list of supported protocols and devices can be found under "Supported device protocols" section of the [rtl_433's README](https://github.com/merbanan/rtl_433/blob/master/README.md).
+ 3. Some wireless sensors supported by rtl_433. The full list of supported protocols and devices can be found under "Supported device protocols" section of the [rtl_433's README](https://github.com/n6ham/rtl_433/blob/master/README.md).
 
 ## Installation
 
@@ -46,7 +46,7 @@ Once you get the rtl_433 sensor data into MQTT, you'll need to help Home Assista
 
 For a "zero configuration" setup, install the [Mosquitto broker](https://github.com/home-assistant/addons/blob/master/mosquitto/DOCS.md) addon. While other brokers may work, they are not tested and will require manual setup. Once the addon is installed, start or restart the rtl_433 and rtl_433_mqtt_autodiscovery addons to start capturing known 433 MHz protocols.
 
-For more advanced configuration, take a look at the example config file included in the rtl_433 source code: [rtl_433.example.conf](https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf)
+For more advanced configuration, take a look at the example config file included in the rtl_433 source code: [rtl_433.example.conf](https://github.com/n6ham/rtl_433/blob/master/conf/rtl_433.example.conf)
 
 Note that since the configuration file has bash variables in it, **dollar signs and other special shell characters need to be escaped**. For example, to use the literal string `$GPRMC` in the configuration file, use `\$GPRMC`.
 
@@ -64,7 +64,7 @@ rtl_433 defaults to listening on 433.92MHz, but even if that's what you need, it
 frequency   433.92M
 ```
 
-You might also want to narrow down the list of protocols that rtl_433 should try to decode. The full list can be found under "Supported device protocols" section of the [README](https://github.com/merbanan/rtl_433/blob/master/README.md). Let's say you want to listen to Acurite 592TXR temperature/humidity sensors:
+You might also want to narrow down the list of protocols that rtl_433 should try to decode. The full list can be found under "Supported device protocols" section of the [README](https://github.com/n6ham/rtl_433/blob/master/README.md). Let's say you want to listen to Acurite 592TXR temperature/humidity sensors:
 
 ```
 protocol    40
@@ -87,7 +87,7 @@ protocol    40
 convert     si
 ```
 
-Please check [the official rtl_433 documentation](https://triq.org/rtl_433) and [config file examples](https://github.com/merbanan/rtl_433/tree/master/conf) for more information.
+Please check [the official rtl_433 documentation](https://triq.org/rtl_433) and [config file examples](https://github.com/n6ham/rtl_433/tree/master/conf) for more information.
 
 ## Credit
 
