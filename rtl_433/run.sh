@@ -44,7 +44,7 @@ then
 # automatically added. Create multiple files ending in '.conf.template' to
 # manage multiple rtl_433 radios, being sure to set the 'device' setting. The
 # device must be set before mqtt output lines.
-# https://github.com/merbanan/rtl_433/blob/master/conf/rtl_433.example.conf
+# https://github.com/n6ham/rtl_433/blob/master/conf/rtl_433.example.conf
 
 output mqtt://\${host}:\${port},user=\${username},pass=\${password},retain=\${retain}
 report_meta time:iso:usec:tz
